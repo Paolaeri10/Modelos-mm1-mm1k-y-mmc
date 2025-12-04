@@ -6,7 +6,7 @@ public class FloreriaAustin {
         Scanner sc = new Scanner(System.in);
         int opcion;  
         do {
-            System.out.println("\n==============================\n");
+            System.out.println("\n==============================");
             System.out.println("      FLORERIA AUSTIN - LÍNEAS DE ESPERA");
             System.out.println("=========================================");
             System.out.println("1. Modelo M/M/1");
@@ -30,5 +30,40 @@ public class FloreriaAustin {
                     break;
                 default:
                     System.out.println("Opción inválida.");
-            }
+                   }
+            } while (opcion != 4);
+    }
+
+    // ---------------------------------------------------------
+    //   MODELO M/M/1  (Un florista atendiendo)
+    // ---------------------------------------------------------
+    public static void mm1(Scanner sc) {
+        System.out.println("\n--- MODELO M/M/1 (1 florista atendiendo) ---");
+
+        System.out.print("Lambda (llegadas por minuto): ");
+        double lambda = sc.nextDouble();
+        System.out.print("Mu (ramos atendidos por minuto): ");
+        double mu = sc.nextDouble();
+
+        double p = lambda / mu;                // Utilización
+        double Lq = (p * p) / (1 - p);         // Clientes en cola
+        double L = p / (1 - p);                // Clientes en sistema
+        double W = L / lambda;                 // Tiempo total
+        double Wq = Lq / lambda;               // Tiempo en cola
+        double variabilidad = 1 / (mu * mu);   // Variabilidad simple
+
+        System.out.println("\nRESULTADOS FLORERÍA AUSTIN:");
+        System.out.println("λ (tasa de llegada) = " + lambda);
+        System.out.println("μ (tasa de servicio) = " + mu);
+        System.out.println("ρ (p, utilización) = " + p);
+        System.out.println("L = " + L + " clientes");
+        System.out.println("Lq = " + Lq + " clientes en cola");
+        System.out.println("W = " + W + " minutos");
+        System.out.println("Wq = " + Wq + " minutos en cola");
+        System.out.println("Variabilidad del servicio = " + variabilidad);
+    }
+    //---------------------------------------------------------
+    // MODELO M/M/K/1   (Floreria con limite de cliente)
+    //---------------------------------------------------------
+    
             
