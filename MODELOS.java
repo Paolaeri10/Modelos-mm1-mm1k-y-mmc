@@ -7,7 +7,7 @@ public class FloreriaAustin {
         int opcion;  
         do {
             System.out.println("\n==============================");
-            System.out.println("      FLORERIA AUSTIN - LÍNEAS DE ESPERA");
+            System.out.println("      Floreria Austin - Lineas de espera ");
             System.out.println("=========================================");
             System.out.println("1. Modelo M/M/1");
             System.out.println("2. Modelo M/M/k/1 (capacidad limitada)");
@@ -78,8 +78,49 @@ public class FloreriaAustin {
         double p = lambda / mu;
         double P0 = (1 - p) / (1 - Math.pow(p, k + 1));
 
-        System.out.println("\nRESULTADOS FLORERÍA AUSTIN:");
+        System.out.println("\n RESULTADOS FLORERÍA AUSTIN:");
         System.out.println("ρ (p) = " + p);
         System.out.println("P0 (probabilidad de estar vacío) = " + P0);
         System.out.println("NOTA: En este modelo los clientes se rechazan si la florería está llena (k).");
     }   
+    // 
+    // Modelo M/M/c  (Varios floristas atendiendo 
+    //
+   public static void mmc(Scanner sc) {
+       System.out.println("\n--- MODELO M/M/c (Varios floristas) ---");
+
+        System.out.print("Lambda: ");
+        double lambda = sc.nextDouble();
+        System.out.print("Mu: ");
+        double mu = sc.nextDouble();
+        System.out.print("Número de floristas c: ");
+        int c = sc.nextInt();
+
+        double p = lambda / (c * mu);  // Utilización total 
+      // Cálculo de P0
+        double suma = 0;
+        for (int n = 0; n < c; n++) {
+            suma += Math.pow(lambda / mu, n) / factorial(n);
+        }
+
+        double parte2 = (Math.pow(lambda / mu, c) / factorial(c)) * (1 / (1 - p));
+        double P0 = 1 / (suma + parte2);
+
+        // Lq
+        double Lq = (P0 * Math.pow(lambda / mu, c) * p) / (factorial(c) * Math.pow(1 - p, 2));
+
+        double L = Lq + (lambda / mu);
+        double W = L / lambda;
+        double Wq = Lq / lambda;
+
+        double variabilidad = 1 / (mu * mu);
+        System.out.println("\n Resultados  Floreria Austin:");
+        System.out.println("ρ (p) = " + p);
+        System.out.println("P0 = " + P0);
+        System.out.println("Lq = " + Lq + " clientes en cola");
+        System.out.println("L = " + L + " clientes en sistema");
+        System.out.println("W = " + W + " minutos");
+        System.out.println("Wq = " + Wq + " minutos en cola");
+        System.out.println("Variabilidad del servicio = " + variabilidad);
+        }
+       
