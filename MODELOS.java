@@ -66,7 +66,7 @@ public class FloreriaAustin {
     // MODELO M/M/K/1   (Floreria con limite de cliente)
     //---------------------------------------------------------
     public static void mmk1(Scanner sc) {
-        System.out.println("\n--- MODELO M/M/k/1 (Capacidad limitada en la florería) ---");
+        System.out.println("\n-- Modelo M/M/k/1 (Capacidad limitada en la florería) --");
 
         System.out.print("Lambda: ");
         double lambda = sc.nextDouble();
@@ -78,7 +78,7 @@ public class FloreriaAustin {
         double p = lambda / mu;
         double P0 = (1 - p) / (1 - Math.pow(p, k + 1));
 
-        System.out.println("\n RESULTADOS FLORERÍA AUSTIN:");
+        System.out.println("\n Resultados Floreria Austin:");
         System.out.println("ρ (p) = " + p);
         System.out.println("P0 (probabilidad de estar vacío) = " + P0);
         System.out.println("NOTA: En este modelo los clientes se rechazan si la florería está llena (k).");
