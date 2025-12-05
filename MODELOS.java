@@ -26,7 +26,7 @@ public class FloreriaAustin {
                     mmc(sc);
                     break;
                 case 4:
-                    System.out.println("Saliendo del sistema...");
+                    System.out.println("Saliendo del sistema....");
                     break;
                 default:
                     System.out.println("Opción inválida.");
@@ -35,7 +35,7 @@ public class FloreriaAustin {
     }
 
     // ---------------------------------------------------------
-    //   MODELO M/M/1  (Un florista atendiendo)
+    //   Modelo M/M/1  (Un florista atendiendo)
     // ---------------------------------------------------------
     public static void mm1(Scanner sc) {
         System.out.println("\n--- MODELO M/M/1 (1 florista atendiendo) ---");
