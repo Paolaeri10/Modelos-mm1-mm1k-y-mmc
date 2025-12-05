@@ -123,4 +123,7 @@ public class FloreriaAustin {
         System.out.println("Wq = " + Wq + " minutos en cola");
         System.out.println("Variabilidad del servicio = " + variabilidad);
         }
-       
+        // Factorial simple
+        public static int factorial(int n) {
+        int f = 1;
+        
